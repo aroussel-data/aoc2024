@@ -8,6 +8,10 @@ import (
 func main() {
 	var left_slice = left[:]
 	var right_slice = right[:]
+	// NOTE: don't use a set for adding frequencies. I don't think doing an exponent
+	// calc on the unique occurence of each int is a good idea as it causes
+	// the calc result to be too high, possibly resulting in an overflowed value.
+	// Stick with doing the frequency for each number, even if duplicated.
 	left_set := make(map[uint64]uint64)
 	for _, element := range left_slice {
 		left_set[element] = 0
